@@ -1,8 +1,8 @@
 {
-  "name": "electron-vue3-ts-quick-start",
-  "version": "0.1.0",
-  "description": "Electron Vue3 Typscript Quick Start",
-  "author": "You",
+  "name": "open-streamdeck",
+  "version": "0.0.1",
+  "description": "Streamdeck",
+  "author": "Danny Rottstegge",
   "private": true,
   "main": "electron/main.js",
   "scripts": {
