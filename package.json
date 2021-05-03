@@ -11,10 +11,11 @@
     "packages": [
       "packages/*"
     ],
-    "nohoist": []
+    "nohoist": ["**/electron", "**/electron/**"]
   },
   "scripts": {
-    "build:web": "cd packages/desktop && yarn build && cd ../../",
+    "dist:windows": "npm run build:web && cd packages/desktop && electron-builder --windows",
+    "build:web": "cd packages/web && yarn build && cd ../../",
     "start:desktop": "cd packages/desktop && electron src/main.js"
   },
   "devDependencies": {

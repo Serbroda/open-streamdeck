@@ -255,3 +255,5 @@ docs/_book
 test/
 
 # End of https://www.toptal.com/developers/gitignore/api/git,node,vue,visualstudiocode,intellij+all
+
+releases

@@ -11,7 +11,7 @@ try {
     require('electron-reloader')(module, { ignore: path.join(__dirname, '..', 'src') });
 } catch (_) {}
 
-const isDev = process.env.MODE === 'development';
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 // Keep a global reference of the window object. If you don't, the window will
 // be closed automatically when the JS object is garbage collected.
@@ -36,14 +36,14 @@ const createWindow = async () => {
     // the `dist` directory.
     const index = path.join(
         __dirname,
-        '../../../',
-        'node_modules/open-streamdeck-web/dist/open-streamdeck-web/index.html'
+        isDevelopment ? '../..' : '',
+        '/node_modules/open-streamdeck-web/dist/open-streamdeck-web/index.html'
     );
     console.log(index, fs.existsSync(index));
     win.loadFile(index);
 
     // Open the dev tools if in development. This can also be removed if not needed.
-    win.webContents.openDevTools();
+    if (isDevelopment) win.webContents.openDevTools();
 };
 
 /**
