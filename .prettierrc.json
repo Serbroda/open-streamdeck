@@ -21,9 +21,9 @@
       }
     },
     {
-      "files": ["packages/ui/**/*.html"],
+      "files": ["*.html"],
       "options": {
-        "parser": "angular",
+        "parser": "html",
         "tabWidth": 2
       }
     }

@@ -4,7 +4,7 @@
   "description": "Streamdeck",
   "main": "index.js",
   "repository": "https://github.com/Serbroda/open-streamdeck.git",
-  "author": "Danny Rottstegge <danny@rottstegge.net>",
+  "author": "Danny Rottstegge",
   "license": "MIT",
   "private": true,
   "workspaces": {
@@ -12,5 +12,12 @@
       "packages/*"
     ],
     "nohoist": []
+  },
+  "scripts": {
+    "build:web": "cd packages/desktop && yarn build && cd ../../",
+    "start:desktop": "cd packages/desktop && electron src/main.js"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
   }
 }
