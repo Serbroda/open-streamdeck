@@ -3,7 +3,7 @@
 const path = require('path');
 const fs = require('fs');
 const { app, BrowserWindow } = require('electron');
-const server = require('open-streamdeck-server');
+const Server = require('open-streamdeck-server').Server;
 
 try {
     // Use electron-reloader reload electron when changes have been made.
@@ -11,6 +11,8 @@ try {
 } catch (_) {}
 
 const isDevelopment = process.env.NODE_ENV === 'development';
+
+const srv = new Server();
 
 // Keep a global reference of the window object. If you don't, the window will
 // be closed automatically when the JS object is garbage collected.
@@ -38,11 +40,12 @@ const createWindow = async () => {
         isDevelopment ? '../..' : '',
         '/node_modules/open-streamdeck-web/dist/open-streamdeck-web/index.html'
     );
-    console.log(index, fs.existsSync(index));
     win.loadFile(index);
 
     // Open the dev tools if in development. This can also be removed if not needed.
-    if (isDevelopment) win.webContents.openDevTools();
+    if (isDevelopment) {
+        win.webContents.openDevTools();
+    }
 };
 
 /**
@@ -52,16 +55,16 @@ const createWindow = async () => {
  * Some APIs can only be used after this event occurs.
  */
 app.on('ready', () => {
+    srv.start();
+
     createWindow();
-
-    console.log(server);
-
-    const srv = new server.Server();
 
     app.on('activate', function () {
         // On macOS it's common to re-create a window in the app when the dock icon
         // is clicked and there are no other windows open.
-        if (BrowserWindow.getAllWindows().length === 0) createWindow();
+        if (BrowserWindow.getAllWindows().length === 0) {
+            createWindow();
+        }
     });
 });
 
@@ -72,6 +75,8 @@ app.on('ready', () => {
  */
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
+        srv.stop();
+
         win = null;
         app.quit();
     }

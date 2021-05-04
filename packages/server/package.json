@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "start": "npm run build && cross-env NODE_ENV=development node dist/index.js"
+    "start": "npm run build && node dist/index.js --start-server"
   },
   "dependencies": {
     "express": "^4.17.1"

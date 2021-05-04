@@ -2,9 +2,9 @@ import { Server } from './Server';
 
 export * from './Server';
 
-const isDevelopment = process.env.NODE_ENV === 'development';
+var args = process.argv.slice(2);
 
-if (isDevelopment) {
+if (args.includes('--start-server')) {
     const server = new Server();
     server.start();
 }
