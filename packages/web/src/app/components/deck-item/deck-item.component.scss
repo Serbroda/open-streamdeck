@@ -1,0 +1,22 @@
+$hover-margin: -2px;
+$size: 75px;
+
+.deck-item-container {
+    background-color: rgb(75, 75, 75);
+    border-radius: 10%;
+    height: $size;
+    width: $size;
+    border: 3px solid rgb(158, 158, 158);
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        margin-left: $hover-margin;
+        margin-top: $hover-margin;
+    }
+
+    &:active {
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+}
