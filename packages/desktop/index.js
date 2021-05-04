@@ -1,10 +1,9 @@
 'use strict';
 
-require('dotenv').config();
-
 const path = require('path');
 const fs = require('fs');
 const { app, BrowserWindow } = require('electron');
+const server = require('open-streamdeck-server');
 
 try {
     // Use electron-reloader reload electron when changes have been made.
@@ -54,6 +53,10 @@ const createWindow = async () => {
  */
 app.on('ready', () => {
     createWindow();
+
+    console.log(server);
+
+    const srv = new server.Server();
 
     app.on('activate', function () {
         // On macOS it's common to re-create a window in the app when the dock icon

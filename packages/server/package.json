@@ -1,7 +1,7 @@
 {
-  "name": "open-streamdeck-desktop",
+  "name": "open-streamdeck-server",
   "version": "0.0.1",
-  "description": "Streamdeck Desktop",
+  "description": "Streamdeck Server",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {

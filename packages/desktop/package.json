@@ -1,7 +1,7 @@
 {
-  "name": "open-streamdeck-server",
+  "name": "open-streamdeck-desktop",
   "version": "0.0.1",
-  "description": "Streamdeck Server",
+  "description": "Streamdeck Desktop",
   "main": "index.js",
   "license": "MIT",
   "build": {
@@ -26,7 +26,7 @@
     "electron-reloader": "^1.2.1"
   },
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "open-streamdeck-web": "^0.0.1"
+    "open-streamdeck-web": "^0.0.1",
+    "open-streamdeck-server": "^0.0.1"
   }
 }
