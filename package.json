@@ -14,9 +14,9 @@
     "nohoist": ["**/electron", "**/electron/**"]
   },
   "scripts": {
-    "dist:windows": "npm run build:web && cd packages/desktop && electron-builder --windows",
     "build:web": "cd packages/web && yarn build && cd ../../",
-    "start:desktop": "cd packages/desktop && npm start"
+    "start:desktop": "cd packages/desktop && npm start",
+    "start:web": "cd packages/web && npm start"
   },
   "devDependencies": {
     "prettier": "^2.2.1"
