@@ -1,4 +1,10 @@
 import { Server } from './Server';
 
-const server = new Server();
-server.start();
+export * from './Server';
+
+const isDevelopment = process.env.NODE_ENV === 'development';
+
+if (isDevelopment) {
+    const server = new Server();
+    server.start();
+}
